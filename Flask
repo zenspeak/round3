@@ -1,0 +1,54 @@
+from flask import Flask, render_template, request
+
+app = Flask(__name__)
+
+@app.route('/')
+def enneagram_app():
+    # render the HTML template for the app
+    return render_template('enneagram_app.html')
+
+@app.route('/my_type', methods=['POST'])
+def my_type():
+    # get the user's selected enneagram type
+    my_type = request.form['my_type']
+
+    # generate the response with information about the user's enneagram type
+    response = generate_my_type(my_type)
+
+    return response
+
+@app.route('/their_type', methods=['POST'])
+def their_type():
+    # get the user's selected enneagram type and the other person's selected enneagram type
+    my_type = request.form['my_type']
+    their_type = request.form['their_type']
+
+    # generate the response with information about the other person's enneagram type
+    response = generate_their_type(their_type)
+
+    return response
+
+@app.route('/communication', methods=['POST'])
+def communication():
+    # get the user's selected enneagram type and the other person's selected enneagram type
+    my_type = request.form['my_type']
+    their_type = request.form['their_type']
+
+    # generate the response with information about communication between the two enneagram types
+    response = generate_communication(my_type, their_type)
+
+    return response
+
+@app.route('/conflict', methods=['POST'])
+def conflict():
+    # get the user's selected enneagram type and the other person's selected enneagram type
+    my_type = request.form['my_type']
+    their_type = request.form['their_type']
+
+    # generate the response with information about conflict between the two enneagram types
+    response = generate_conflict(my_type, their_type)
+
+    return response
+
+if __name__ == '__main__':
+    app.run()
