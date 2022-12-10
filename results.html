@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Enneagram Personality Types</title>
+</head>
+<body>
+    <h1>Results:</h1>
+
+    <h2>About Their Personality Type:</h2>
+    <ul>
+        {% for point in about_their_type %}
+            <li>{{ point }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Communication:</h2>
+    <p>{{ communication }}</p>
+
+    <h2>Conflict:</h2>
+    <p>{{ conflict }}</p>
+</body>
+</html>
